@@ -1,5 +1,10 @@
-/node_modules
-/dist
-/.tmp
-/.sass-cache
-/bower_components
+/frontend/node_modules
+/frontend/dist
+/frontend/.tmp
+/frontend/.sass-cache
+/frontend/bower_components
+/api/node_modules
+/api/dist
+/api/.tmp
+/api/.sass-cache
+/api/bower_components
