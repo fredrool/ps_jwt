@@ -6,6 +6,13 @@ var UserSchema = new mongoose.Schema({
     password: String
 });
 
+UserSchema.methods.toJSON = function() {
+    var user = this.toObject();
+    delete user.password;
+    
+    return user;
+}
+
 exports.model = mongoose.model('User', UserSchema);
 
 UserSchema.pre('save', function(next) {
@@ -25,3 +32,5 @@ UserSchema.pre('save', function(next) {
         });
     });
 });
+
+
