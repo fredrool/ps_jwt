@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('psJwtApp').service('auth', function ($http, authToken, API_URL, $state) {
+angular.module('psJwtApp').service('auth', function auth($http, authToken, API_URL, $state) {
     function authSuccessful(res) {
         authToken.setToken(res.token);
         $state.go('main');
