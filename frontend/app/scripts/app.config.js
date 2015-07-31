@@ -1,4 +1,4 @@
-angular.module('psJwtApp').config(function($urlRouterProvider, $stateProvider, $httpProvider) {
+angular.module('psJwtApp').config(function($urlRouterProvider, $stateProvider, $httpProvider, $authProvider, API_URL) {
 	
 	$stateProvider
 
@@ -31,6 +31,19 @@ angular.module('psJwtApp').config(function($urlRouterProvider, $stateProvider, $
 	});
 
 	$urlRouterProvider.otherwise('/');
+    
+    $authProvider.loginUrl = API_URL + 'login';
+    $authProvider.signupUrl = API_URL + 'register';
+    
+    $authProvider.google({
+        clientId: '812211569237-l6unnh8tl6frnm1dchgq7ncgd6avodql.apps.googleusercontent.com',
+        url: API_URL + 'auth/google'
+    });
+    
+    $authProvider.facebook({
+        clientId: '976137499095900',
+        url: API_URL + 'auth/facebook'
+    });
     
     $httpProvider.interceptors.push('authInterceptor');
 })
