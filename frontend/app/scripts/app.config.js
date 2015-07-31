@@ -32,8 +32,8 @@ angular.module('psJwtApp').config(function($urlRouterProvider, $stateProvider, $
 
 	$urlRouterProvider.otherwise('/');
     
-    $authProvider.loginUrl = API_URL + 'login';
-    $authProvider.signupUrl = API_URL + 'register';
+    $authProvider.loginUrl = API_URL + 'auth/login';
+    $authProvider.signupUrl = API_URL + 'auth/register';
     
     $authProvider.google({
         clientId: '812211569237-l6unnh8tl6frnm1dchgq7ncgd6avodql.apps.googleusercontent.com',
@@ -48,7 +48,7 @@ angular.module('psJwtApp').config(function($urlRouterProvider, $stateProvider, $
     $httpProvider.interceptors.push('authInterceptor');
 })
 
-.constant('API_URL', 'http://localhost:3000/')
+.constant('API_URL', 'http://localhost:1337/')
 
 .run(function($window) {
     var params = $window.location.search.substring(1);
