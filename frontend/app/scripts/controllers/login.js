@@ -7,7 +7,8 @@ angular.module('psJwtApp').controller('LoginCtrl', function ($scope, alert, auth
             password: $scope.password
         })
         .then(function(res) {
-            alert('success', 'Login Successful', 'Welcome ' + res.data.user.email + '!');
+            var message = 'Welcome ' + res.data.user.email + '!';
+            alert('success', 'Login Successful', message);
         })
         .catch(handleError);
     };
